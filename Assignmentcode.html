@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Feedback Form</title>
+    <style>
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f2f2f2;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group textarea:focus {
+            border-color: #007BFF;
+        }
+
+        .rating-options {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .rating-options label {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+            font-size: 16px;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .rating-options input {
+            margin-right: 8px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .success-message {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 500px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .submit-btn {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Course Feedback</h1>
+        <form id="feedbackForm">
+            <div class="form-group">
+                <label for="courseName">Course Name<span style="color: red;">*</span></label>
+                <input type="text" id="courseName" name="courseName" placeholder="Enter course name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Rate the Course<span style="color: red;">*</span></label>
+                <div class="rating-options">
+                    <label>
+                        <input type="radio" name="rating" value="Excellent" required>
+                        Excellent
+                    </label>
+                    <label>
+                        <input type="radio" name="rating" value="Good">
+                        Good
+                    </label>
+                    <label>
+                        <input type="radio" name="rating" value="Average">
+                        Average
+                    </label>
+                    <label>
+                        <input type="radio" name="rating" value="Poor">
+                        Poor
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Additional Comments</label>
+                <textarea id="comments" name="comments" rows="5" placeholder="Enter your comments here..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Feedback</button>
+            <div class="success-message" id="successMessage">
+                Thank you for your feedback!
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Form Submission Handler
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents the default form submission behavior
+
+            // You can perform additional validation or processing here if needed
+
+            // Display Success Message
+            document.getElementById('successMessage').style.display = 'block';
+
+            // Clear Form Fields
+            document.getElementById('feedbackForm').reset();
+        });
+    </script>
+
+</body>
+</html>
